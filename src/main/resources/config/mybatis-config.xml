@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configration SYSTEM "mybatis-3-config.dtd">
+<configration>
+	<properties>
+		<property name="jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+		<property name="jdbc.url" value="jdbc:mysql://localhost:3306/blogapp" />
+		<property name="jdbc.username" value="root" />
+		<property name="jdbc.password" value="monoburos9" />
+	</properties>
+	<mappers>
+	</mappers>
+</configration>
