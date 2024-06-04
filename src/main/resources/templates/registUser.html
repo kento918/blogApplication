@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{css/main.css}" />
+<link rel="stylesheet" th:href="@{css/input.css}" />
+<script th:src="@{/js/buttoncheck.js}"></script>
+<title>Insert title here</title>
+</head>
+<header class="header-title" >
+	<div class="container">
+		<div class="title">
+			<h4>かなでのぎじゅつぶろぐ</h4>
+		</div>
+	</div>
+</header>
+<body>
+	<div class="input-menu">		
+		<form action="#"
+			  th:action="@{/registUser}"
+			  th:object="${newUser}"
+			  method="POST">
+			<div class="input-group">
+				<label for="name" class="inputs-title">name
+					<input class="inputs" id="name" type="text" th:field="*{name}" placeholder="name" />
+				</label>
+				<label for="password"class="inputs-title">password
+					<input class="inputs" id="password" type="password" th:field="*{password}" placeholder="Password">
+				</label>
+			</div>
+		<button type="submit" id="checkButton">push</button>
+		</form>
+	</div>
+	<a th:href="@{/}">home</a>
+</body>
+</html>

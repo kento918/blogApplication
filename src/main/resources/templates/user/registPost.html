@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{css/main.css}" />
+<link rel="stylesheet" th:href="@{css/input.css}" />
+<title>Blog : newPost</title>
+</head>
+<body>
+	<h2>hello world</h2>
+	<div th:unless="${flug}">
+		
+	<form action="#"
+		  th:action="@{/registPost}"
+		  method="POST"
+		  class="input-menu">
+		<div class="input-group">
+			<label for="タイトル" class="inputs-title">タイトル<br>
+				<input class="inputs" type="text" th:field="*{post.title}" placeholder="name" />
+			</label><br>
+                <label for="new-post-body"class="inputs-title">内容<br>
+                <textarea class="inputs-area" th:field="*{post.body}" ></textarea>
+                </label><br>
+			<label for="カテゴリー"class="inputs-title">カテゴリー<br>
+				<input class="inputs" type="text" th:field="*{post.categoryId}" placeholder="categoryId" />
+			</label><br>
+			<input type="hidden" th:field="${flug}" name="flug" value="false">
+		</div>
+	<button type="submit">push</button>
+	</form>
+	</div>
+	<div th:if="${flug}">
+		<a>下記の通り入力しました。</a>
+		<ul>
+			<li>タイトル<a th:text="${post.title}"></a></li>
+			<li>内容<a th:text="${post.body}"></a></li>
+		</ul>
+		<p>これで送信しますか？</p>
+		<a th:href="/registPost">送信</a>
+		<a th:href="@{/}">戻る</a>
+	
+	</div>
+	<a th:href="@{/}">home</a>
+</body>
+</html>

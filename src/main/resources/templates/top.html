@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Insert title here</title>
+</head>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{css/main.css}" />
+<title>Blog : Top</title>
+</head>
+<header class="header-title" >
+	<div class="container">
+		<div class="title">
+			<h4>かなでのぎじゅつぶろぐ</h4>
+		</div>
+		<nav class="logins">			
+			<lu>		
+				<li><a th:href="@{/login}">ログイン</a></li>
+				<li><a th:href="@{/registUser}">新規登録</a></li>
+			</lu>
+		</nav>
+	</div>
+</header>
+<body>
+	<dev class="top-body">
+		<h3 >Blog Sample</h3>
+	</dev>
+	
+</body>
+</html>

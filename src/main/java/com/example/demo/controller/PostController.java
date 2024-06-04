@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.demo.entity.Post;
+import com.example.demo.entity.PostEntity;
 import com.example.demo.service.PostService;
 import com.example.demo.service.UserService;
 
@@ -22,17 +22,24 @@ public class PostController {
 	
 	@GetMapping("/registPost")
 	public String registPost(Model model) {
-		model.addAttribute("post", new Post());
-		model.addAttribute("postList", postService.getAll());
+		model.addAttribute("post", new PostEntity());
+		model.addAttribute("flug", false);
 		return "/registPost";
 	}
 	
 	@PostMapping("/registPost")
-	public String createNewPost(@ModelAttribute Post post, Model model) {
-		post.setSlug(createNewSlug(post));
-		postService.savePost(post);
-		
-		return "redirect:/";
+	public String createNewPost(@ModelAttribute PostEntity post, Model model) {
+		if(!post.isNull()) {
+			post.setSlug(createNewSlug(post));
+			post.setAuthorId(1);
+			postService.savePost(post);
+			return "redirect:/";
+			
+		}else{
+			model.addAttribute("flug",true);
+			model.addAttribute("post",post);
+			return "/registPost";
+		}
 	}
 
 	@GetMapping("/posts")
@@ -41,8 +48,8 @@ public class PostController {
 		return "/posts";
 	}
 	
-	private static String createNewSlug(Post post) {
-		return "blog." + post.getTitle() + post.getId();
+	private static String createNewSlug(PostEntity post) {
+		return "blog." + post.getTitle().hashCode()/* + userService.getNameById(post.getAuthorId())*/;
 	}
-	
+
 }

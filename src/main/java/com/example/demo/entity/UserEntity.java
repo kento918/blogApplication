@@ -12,7 +12,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class User {
+public class UserEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	int id;
@@ -21,5 +21,6 @@ public class User {
 	byte[] password_salt;
 	LocalDateTime createAt;
 	LocalDateTime updateAt;
+	String roles;
 	
 }

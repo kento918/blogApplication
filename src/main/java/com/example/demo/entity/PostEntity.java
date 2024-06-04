@@ -10,7 +10,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Post {
+public class PostEntity {
 	@Id
 	int id;
 	String title;
@@ -21,4 +21,8 @@ public class Post {
 	int categoryId;
 	boolean published;
 	String slug;
+	
+	public boolean isNull() {
+		return this.title == null || this.body == null;
+	}
 }

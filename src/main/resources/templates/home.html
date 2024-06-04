@@ -3,36 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Blog : Home</title>
+<link rel="stylesheet" th:href="@{css/main.css}" />
+<title>Insert title here</title>
 </head>
 <body>
-	<h1>Spring Blog app</h1>
-	</hr>
-	<a th:href="@{/registPost}">create new Post</a>
-	<form action="#"
-		  th:action="@{/regist}"
-		  th:object="${newUser}"
-		  method="POST">
-		<div class="input-group">
-			<label for="name">
-				<input id="name" type="text" th:field="*{name}" placeholder="name" />
-			</label>
-			<label for="password">
-				<input id="password" type="password" th:field="*{password}" placeholder="Password">
-			</label>
-		</div>
-	<button type="submit">push</button>
-	</form>
-	<div class="user" th:each="user: ${userList}">
-		<lu>
-			<li th:text="${user.id}"></li>
-			<li th:text="${user.name}"></li>
-			<li th:text="${user.password}"></li>
-			<li th:text="${user.password_salt}"></li>
-		</lu>
-		</h2>
-		<br>
-	</div>
-	<a th:href="@{/posts}">pos</a>
+	<dev class="body-container">
+		<h2>hello admin host!</h2>
+		this is admin only pase!
+		
+	</dev>
 </body>
 </html>
