@@ -18,7 +18,7 @@ public class UserEntity {
 	int id;
 	String name;
 	String password;
-	byte[] password_salt;
+	String password_salt;
 	LocalDateTime createAt;
 	LocalDateTime updateAt;
 	String roles;

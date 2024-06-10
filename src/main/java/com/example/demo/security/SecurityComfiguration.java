@@ -19,6 +19,15 @@ import com.example.demo.service.MyUserDetailsService;
 public class SecurityComfiguration {
 	
 	@Autowired
+	customLoginSuccessHandler customLoginSuccessHandler;
+	
+	@Autowired
+	customLoginFailureHandler customLoginFailureHandler;
+
+	@Autowired
+	customLogoutSuccessHandler customLogoutSuccessHandler;
+	
+	@Autowired
 	private MyUserDetailsService us;
 	
 	@Bean
@@ -26,22 +35,25 @@ public class SecurityComfiguration {
 		return https
 				.csrf(cs -> cs.disable())
 				.authorizeHttpRequests(registry->{
-					registry.requestMatchers("/top").permitAll();
+					registry.requestMatchers("/").permitAll();
 					registry.requestMatchers("/login").permitAll();
 					registry.requestMatchers("/logout").permitAll();
 					registry.requestMatchers("/registUser").permitAll();
 					registry.requestMatchers("/admin/**").hasRole("admin");
-					registry.requestMatchers("/user/**").hasRole("admin");
 					registry.requestMatchers("/user/**").hasRole("user");
+					registry.requestMatchers("/css/**").permitAll();
+					registry.requestMatchers("/js/**").permitAll();
+					
 					registry.anyRequest().authenticated();
 				})
 				.formLogin(auth -> {
 					auth.loginPage("/login").permitAll();
-					auth.defaultSuccessUrl("/home");
+					auth.successHandler(customLoginSuccessHandler);
+					auth.failureHandler(customLoginFailureHandler);
 				})
 				.logout(log ->{
 					log.logoutUrl("/logout");
-					log.logoutSuccessUrl("/top");
+					log.logoutSuccessHandler(customLogoutSuccessHandler);
 				})
 				
 				

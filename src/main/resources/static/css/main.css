@@ -3,7 +3,7 @@
 :root{
 	background-color: aqua;
 	
-	--color-main:#000;
+	--color-main:#FFF;
 	font-family: "メイリオ", Arial, Helvetica, sans-serif ;
 }
 
@@ -15,36 +15,36 @@
 body{
 	margin-left:10%;
 	margin-right:10%;
-	background-color: #000;
+	background-color: 0#003B73;
 }
 
 .header-title {
 	margin-top:0;
-	background-color: cornsilk;
+	background-color: #60A3D9;
 	padding-top: 0px;
 	padding-bottom: 10px;
 }
 
 .header-title .container {
-	background-color: blue;
+	background-color: #0074B7;
 	display:flex;
 }
 
 .header-title .container .title{
 	display:block;
-	background-color: darkorange;
+	background-color: #60A3D9;
 	padding-top:2px;
 	padding-bottom:2px;
 }
 
 .header-title .container .logins {
-	background-color: red;
+	background-color: #60A3D9;
 	display:inline-block;
 	margin-left:auto;
 }
 
 .header-title .container .logins lu{
-	background-color: yellow;
+	background-color: #60A3D9;
 	list-style-type: none;
 	display:flex;
 }

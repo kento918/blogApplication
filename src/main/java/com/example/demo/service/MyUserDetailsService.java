@@ -15,16 +15,16 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Autowired
 	private UserMapper mp;
-
+	
 	@Override
 	public UserDetails loadUserByUsername(String username) {
 		if (mp.isGetUserName(username)) {
-
+			
 			UserEntity user = mp.getUserByName(username);
 
 			return User.builder()
 					.username(user.getName())
-					.password(user.getPassword() /*+ user.getPassword_salt()*/)
+					.password(user.getPassword()/* + user.getPassword_salt()*/)
 					.roles(getRoles(user))
 					.build();
 

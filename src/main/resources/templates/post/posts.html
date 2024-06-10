@@ -8,9 +8,9 @@
 <body>
 	<h2>hello world</h2>
 	
-	<div class="post" th:each="posts : ${postList}">
+	<div class="post" th:each="posts : ${postList}" th:Field="${user}" >
 		<lu>
-			<li th:text="${posts.slug}"></li>
+			<li th:text="${user.name}"></li>
 			<li th:text="${posts.title}"><a th:href="@{/}">ssss</a></li>
 			<li th:text="${posts.body}"></li>
 		</lu>

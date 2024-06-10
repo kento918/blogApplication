@@ -20,7 +20,6 @@ public class PostEntity {
 	int authorId;
 	int categoryId;
 	boolean published;
-	String slug;
 	
 	public boolean isNull() {
 		return this.title == null || this.body == null;

@@ -23,7 +23,7 @@ public class PostService{
 		
 	}
 
-	public List<PostEntity> getPostById(int id) {
-		return postMapper.getPostById(id);
+	public List<PostEntity> getPostByAuthorId(int Authorid) {
+		return postMapper.getPostByauthorId(Authorid);
 	}
 }
